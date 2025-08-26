@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>artfsy_craftfsy — Portfolio</title>
+<!-- Default favicon -->
+<link rel="icon" href="fart logo.jpg" type="image/png">
+
+<!-- Dark mode favicon -->
+<link rel="icon" href="fart logo.jpg" type="image/png" media="(prefers-color-scheme: dark)">
+
+    <!-- Tailwind CDN + dark mode config -->
+    <script>
+        // Tailwind dark mode uses class on <html>
+        document.documentElement.classList.toggle(
+            'dark',
+            localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        );
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', theme: {
+                extend: {
+                    colors: {
+                        canvas: '#FAF7F2',
+                        ink: '#1A1A1A',
+                        washYellow: '#E3B23C',
+                        washRed: '#9B2C2C'
+                    },
+                    boxShadow: {
+                        soft: '0 6px 24px rgba(17,17,17,0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --grain: url('data:image/svg+xml;utf8,\
+      <svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">\
+      <filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/></filter>\
+      <rect width="220" height="220" filter="url(%23n)" opacity="0.05"/></svg>');
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Playfair Display", Georgia, serif;
+        }
+    </style>
+</head>
+
+<body class="bg-canvas text-ink dark:bg-[#0b0b0b] dark:text-[#eaeaea] selection:bg-yellow-200/60 selection:text-ink">
+    <!-- Decorative watercolor washes (subtle, non-neon) -->
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10">
+        <div class="absolute -top-12 -left-12 w-64 h-64 rounded-full blur-2xl opacity-15 mix-blend-multiply"
+            style="background: radial-gradient(60% 60% at 50% 50%, #E3B23C33 0%, #E3B23C00 70%);"></div>
+        <div class="absolute -bottom-16 -right-16 w-80 h-80 rounded-full blur-3xl opacity-15 mix-blend-multiply"
+            style="background: radial-gradient(60% 60% at 50% 50%, #9B2C2C26 0%, #9B2C2C00 70%);"></div>
+        <div class="absolute inset-0" style="background-image: var(--grain); background-size: 220px 220px;"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 pt-5">
+        <nav
+            class="flex items-center justify-between rounded-2xl border border-black/5 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md px-4 py-3 shadow-soft">
+
+            <!-- Logo + Title -->
+            <a href="#top" class="flex items-center gap-2">
+                <!-- Logo -->
+                <span
+                    class="inline-flex h-8 w-8 items-center justify-center rounded-full overflow-hidden ring-1 ring-black/10 dark:ring-white/15">
+                    <img src="fart logo.jpg" alt="logo" class="h-full w-full object-cover" />
+                </span>
+
+                <!-- Title + Tagline -->
+                <div class="flex flex-col leading-tight">
+                    <div class="font-semibold tracking-wide">artfsy_craftfsy</div>
+                    <div class="text-[11px] text-black/60 dark:text-white/60">paint · craft · delight</div>
+                </div>
+            </a>
+
+            <!-- Nav Links (centered in available space) -->
+            <div class="hidden sm:flex flex-1 justify-center gap-6 text-sm">
+                <a href="#work" class="hover:underline underline-offset-4">Work</a>
+                <a href="#about" class="hover:underline underline-offset-4">About</a>
+                <a href="#contact" class="hover:underline underline-offset-4">Contact</a>
+            </div>
+
+            <!-- Theme Toggle -->
+            <div class="flex items-center gap-2">
+                <button id="themeToggle"
+                    class="rounded-full border border-black/10 dark:border-white/15 px-3 py-1.5 text-sm hover:bg-black/5 dark:hover:bg-white/10"
+                    aria-label="Toggle dark mode">
+                    <span id="themeLabel">Dark</span> ⏺
+                </button>
+            </div>
+        </nav>
+    </header>
+
+
+    <!-- Hero -->
+    <section id="top" class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 text-center pt-14 pb-12">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl leading-tight">
+            Have an idea in mind?<br class="hidden sm:block" />
+            <span class="whitespace-nowrap">I’ll bring it to life on canvas.</span>
+        </h1>
+       <p class="mt-4 text-sm sm:text-base text-black/70 dark:text-white/70">
+    <span class="text-[#B3261E]">Where color</span> speaks and 
+    <span class="text-[#E3B23C]">hands listen</span>. 
+    <span class="text-[#6A1B9A]">Every stroke</span> tells a story.
+</p>
+
+
+        <div class="mt-7 flex justify-center gap-3">
+            <a href="#work"
+                class="rounded-full px-5 py-2 text-sm font-semibold border border-black/10 dark:border-white/15 bg-white/70 dark:bg-white/5 hover:bg-black/5 dark:hover:bg-white/10">View
+                Work</a>
+            <a href="#timeline"
+                class="rounded-full px-5 py-2 text-sm font-semibold text-[#4a3e1a] dark:text-yellow-200 bg-[#f5f0d6] dark:bg-yellow-900/30 hover:bg-[#e6dfb3] dark:hover:bg-yellow-900/50 border border-black/5 dark:border-white/10">Order
+                Timeline</a>
+        </div>
+    </section>
+
+    <!-- Work (Video Gallery) -->
+    <section id="work" class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 pb-20">
+        <div class="flex items-end justify-between flex-wrap gap-3 mb-6">
+            <h2 class="text-xl sm:text-2xl">Gallery — in motion</h2>
+            <p class="text-sm text-black/60 dark:text-white/60">Tap to watch the creation unfold.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <figure
+                class="group relative rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 hover:shadow-soft transition">
+                <div class="relative">
+                    <video id="vid1" class="w-full aspect-[4/5] object-cover" muted playsinline preload="metadata"
+                        poster="thumbnail01.png?text=My Way">
+                        <source src="/fart02.mp4" type="video/mp4" />
+                    </video>
+
+                    <!-- Play overlay -->
+                    <div id="overlay-vid1" onclick="togglePlay('vid1','overlay-vid1')"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/50 transition">
+                        <span class="bg-black/70 text-white px-3 py-1 rounded-full text-sm">▶ Play</span>
+                    </div>
+
+                    <!-- Caption -->
+                    <div
+                        class="absolute bottom-3 left-3 right-3 text-white/95 opacity-0 group-hover:opacity-100 transition">
+                        <figcaption class="text-sm font-medium">My Way</figcaption>
+                        <p class="text-xs text-white/80">Acrylic, 2024 · Painted in quiet hours</p>
+                    </div>
+                </div>
+            </figure>
+
+            <!-- Card 2 -->
+            <figure
+                class="group relative rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 hover:shadow-soft transition">
+                <div class="relative">
+                    <video id="vid2" class="w-full aspect-[4/5] object-cover" muted playsinline preload="metadata"
+                        poster="thumbnail02.PNG?text=Portrait">
+                        <source src="/fart01.mp4" type="video/mp4" />
+                    </video>
+
+                    <!-- Play overlay -->
+                    <div id="overlay-vid2" onclick="togglePlay('vid2','overlay-vid2')"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/50 transition">
+                        <span class="bg-black/70 text-white px-3 py-1 rounded-full text-sm">▶ Play</span>
+                    </div>
+
+                    <!-- Caption -->
+                    <div
+                        class="absolute bottom-3 left-3 right-3 text-white/95 opacity-0 group-hover:opacity-100 transition">
+                        <figcaption class="text-sm font-medium">Portrait</figcaption>
+                        <p class="text-xs text-white/80">Acrylic, 2024 · Gallery Series</p>
+                    </div>
+                </div>
+            </figure>
+
+            <!-- Card 3 -->
+            <figure
+                class="group relative rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 hover:shadow-soft transition">
+                <div class="relative">
+                    <video id="vid3" class="w-full aspect-[4/5] object-cover" muted playsinline preload="metadata"
+                        poster="thumbnail03.png?text=urges & grudges">
+                        <source src="/fart03.mp4" type="video/mp4" />
+                    </video>
+
+                    <!-- Play overlay -->
+                    <div id="overlay-vid3" onclick="togglePlay('vid3','overlay-vid3')"
+                        class="absolute inset-0 flex items-center justify-center cursor-pointer bg-black/30 hover:bg-black/50 transition">
+                        <span class="bg-black/70 text-white px-3 py-1 rounded-full text-sm">▶ Play</span>
+                    </div>
+
+                    <!-- Caption -->
+                    <div
+                        class="absolute bottom-3 left-3 right-3 text-white/95 opacity-0 group-hover:opacity-100 transition">
+                        <figcaption class="text-sm font-medium">Urges & Grudges</figcaption>
+                        <p class="text-xs text-white/80">Acrylic, 2024 · Stolen from a quiet morning</p>
+                    </div>
+                </div>
+            </figure>
+        </div>
+
+        <p class="mt-6 text-center text-sm text-black/60 dark:text-white/60">
+            P.S. If a video doesn’t load, blame the file path. Or your device. Definitely not me.
+        </p>
+
+        <script>
+            function togglePlay(videoId, overlayId) {
+                const video = document.getElementById(videoId);
+                const overlay = document.getElementById(overlayId);
+
+                if (video.paused) {
+                    video.play();
+                    overlay.style.display = "none"; // hide when playing
+                } else {
+                    video.pause();
+                    overlay.style.display = "flex"; // show again if paused
+                }
+
+                // Always bring overlay back when video ends
+                video.onended = () => {
+                    overlay.style.display = "flex";
+                };
+            }
+        </script>
+
+    </section>
+
+    <!-- About -->
+    <section id="about" class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 pb-20">
+        <div class="grid md:grid-cols-5 gap-8 items-start">
+            <div class="md:col-span-2">
+                <div
+                    class="rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 bg-white/60 dark:bg-white/5 shadow-soft">
+                    <img src="fart img.jpg" alt="Artist portrait" class="w-full object-cover" />
+                </div>
+            </div>
+            <div class="md:col-span-3">
+                <h3 class="text-xl sm:text-2xl mb-3">About the Artist</h3>
+                <p class="text-sm sm:text-base text-black/80 dark:text-white/80 leading-relaxed">
+                    I am <span
+                        class="text-[color:var(--washRed,#9B2C2C)]/80 dark:text-yellow-300">Fatima Shoukat</span>, known to most as <span
+                        class="text-[color:var(--washRed,#b3261eff)]/80 dark:text-red-300">artfsy_craftfsy</span>. What
+                    began as a college jest “Artsy & Craftsy” — evolved into an identity I own.
+                    My affair with painting began in childhood, borrowing my sister’s watercolours. For a season, I
+                    turned to cooking, yet art always returned, no longer pastime but solace. Acrylics lend me
+                    swiftness, oils grant me patience; together, they balance my hand.
+                </p>
+                <p class="mt-4 text-sm sm:text-base text-black/60 dark:text-white/60 leading-relaxed">
+                    At heart, my aim is simple: to take what is ordinary — a face, a moment, a fragment of life and
+                    render it into something that lingers. If my art leaves you comforted, nostalgic, or quietly
+                    stirred, then it has spoken as it ought.
+                </p>
+            </div>
+
+    </section>
+
+
+    <!-- Commission Timeline -->
+    <section id="timeline" class="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10 pb-20">
+        <div class="text-center mb-8 relative">
+            <h3 class="relative z-10 text-xl sm:text-2xl inline-block">Timeline</h3>
+
+        </div>
+
+        <p class="text-sm sm:text-base text-black/80 dark:text-white/80 leading-relaxed mb-8 text-center">
+            Art doesn’t come with overnight shipping. It matures — like fine wine, like ideas, like the perfect shade of
+            red. Here’s how long brilliance usually takes:
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-y-6 gap-x-12 text-sm sm:text-base">
+
+            <div class="border-b border-black/10 dark:border-white/10 pb-2">
+                <div class="flex justify-between items-start">
+                    <span class="text-black/70 dark:text-white/70 w-1/3">Custom Pieces:</span>
+                    <span class="font-medium text-black/90 dark:text-white w-2/3">2–4 weeks — Because beauty insists on
+                        patience.</span>
+                </div>
+            </div>
+
+            <div class="border-b border-black/10 dark:border-white/10 pb-2">
+                <div class="flex justify-between items-start">
+                    <span class="text-black/70 dark:text-white/70 w-1/3">Digital Art:</span>
+                    <span class="font-medium text-black/90 dark:text-white w-2/3">1–2 weeks — The closest thing to
+                        instant gratification I offer.</span>
+                </div>
+            </div>
+
+            <div class="border-b border-black/10 dark:border-white/10 pb-2">
+                <div class="flex justify-between items-start">
+                    <span class="text-black/70 dark:text-white/70 w-1/3">Portraits:</span>
+                    <span class="font-medium text-black/90 dark:text-white w-2/3">3–5 weeks — Faces deserve reverence.
+                        Yours, especially.</span>
+                </div>
+            </div>
+
+            <div class="border-b border-black/10 dark:border-white/10 pb-2">
+                <div class="flex justify-between items-start">
+                    <span class="text-black/70 dark:text-white/70 w-1/3">Rush Jobs:</span>
+                    <span class="font-medium text-black/90 dark:text-white w-2/3">+50% — Genius on demand comes at a
+                        price, and with extra caffeine.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- Contact -->
+    <section id="contact" class="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 pb-24">
+        <h3 class="text-xl sm:text-2xl text-center mb-2">Let’s create together</h3>
+        <p class="text-sm sm:text-base text-center text-black/60 dark:text-white/60 mb-6">
+            Have an idea? Toss it here. I’ll turn it into something you can hang, frame, or flex.
+        </p>
+
+        <form action="https://formsubmit.co/Fatimashoukat14@gmail.com" method="POST"
+            class="bg-white/70 dark:bg-white/5 border border-black/10 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-soft space-y-4 max-w-2xl mx-auto">
+
+            <!-- Name + Email -->
+            <div class="grid sm:grid-cols-2 gap-4">
+                <label class="block text-sm w-full">
+                    <span class="font-medium">Your Name</span>
+                    <input type="text" name="name" required
+                        class="mt-1 w-full rounded-md border border-black/10 dark:border-white/15 bg-white/80 dark:bg-white/5 px-3 py-2 outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20"
+                        placeholder="Da Vinci Fan #27" />
+                </label>
+                <label class="block text-sm w-full">
+                    <span class="font-medium">Email</span>
+                    <input type="email" name="email" required
+                        class="mt-1 w-full rounded-md border border-black/10 dark:border-white/15 bg-white/80 dark:bg-white/5 px-3 py-2 outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20"
+                        placeholder="you@example.com" />
+                </label>
+            </div>
+
+            <!-- Message -->
+            <label class="block text-sm">
+                <span class="font-medium">Project Notes</span>
+                <textarea name="message" rows="4" required
+                    class="mt-1 w-full rounded-md border border-black/10 dark:border-white/15 bg-white/80 dark:bg-white/5 px-3 py-2 outline-none focus:ring-2 focus:ring-black/10 dark:focus:ring-white/20"
+                    placeholder="Think warm, textured, with a whisper of red…"></textarea>
+            </label>
+
+            <!-- Submit + socials -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+                <a href="https://instagram.com/artfsy_craftfsy" target="_blank"
+                    class="text-sm underline underline-offset-4 hover:opacity-80">Instagram: @artfsy_craftfsy</a>
+
+                <button type="submit"
+                    class="rounded-full px-6 py-2 text-sm font-semibold text-[#4a3e1a] dark:text-yellow-200 bg-[#f5f0d6] dark:bg-yellow-900/30 hover:bg-[#e6dfb3] dark:hover:bg-yellow-900/50 border border-black/5 dark:border-white/10 w-full sm:w-auto text-center">
+                    Send Message
+                </button>
+            </div>
+
+            <p class="text-[12px] text-black/50 dark:text-white/50 text-center">No spam. No mailing list. Just paint.
+            </p>
+        </form>
+    </section>
+
+
+    <footer class="relative text-center py-6 text-sm text-black/60 dark:text-white/60">
+        © <span id="year"></span> artfsy_craftfsy — This website is a canvas too.
+
+        <!-- anchored signature -->
+        <span class="absolute right-4 bottom-2 text-gray-400 text-xs italic">By nbl.</span>
+    </footer>
+
+    <!-- Modal -->
+    <div id="videoModal" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <div class="relative mx-auto max-w-4xl h-[80vh] px-6 flex items-center">
+            <div class="relative w-full rounded-2xl overflow-hidden bg-black shadow-soft border border-white/10">
+                <button id="closeModal"
+                    class="absolute top-2 right-2 z-10 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold hover:bg-white">Close</button>
+                <div class="relative w-full h-full aspect-video bg-black" id="playerHost"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Theme toggle
+        const btn = document.getElementById('themeToggle');
+        const label = document.getElementById('themeLabel');
+        function updateLabel() {
+            label.textContent = document.documentElement.classList.contains('dark') ? 'Light' : 'Dark';
+        }
+        updateLabel();
+        btn.addEventListener('click', () => {
+            const d = document.documentElement;
+            d.classList.toggle('dark');
+            localStorage.theme = d.classList.contains('dark') ? 'dark' : 'light';
+            updateLabel();
+        });
+
+        // Video modal
+        const modal = document.getElementById('videoModal');
+        const host = document.getElementById('playerHost');
+        const close = document.getElementById('closeModal');
+
+        function openModal({ type, src }) {
+            host.innerHTML = '';
+            if (type === 'youtube') {
+                const id = (src.match(/(?:v=|\/)([0-9A-Za-z_-]{11})/) || [, ''])[1];
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+                iframe.allow = 'autoplay; encrypted-media; picture-in-picture';
+                iframe.allowFullscreen = true;
+                iframe.className = 'w-full h-full';
+                host.appendChild(iframe);
+            } else {
+                const v = document.createElement('video');
+                v.src = src;
+                v.controls = true;
+                v.autoplay = true;
+                v.playsInline = true;
+                v.className = 'w-full h-full object-contain bg-black';
+                host.appendChild(v);
+            }
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+            host.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.open-video').forEach(btn => {
+            btn.addEventListener('click', () => openModal({ type: btn.dataset.type, src: btn.dataset.src }));
+        });
+        close.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeModal(); });
+    </script>
+</body>
+
+</html>
